@@ -1,0 +1,224 @@
+0403 Set PC Connection
+Int16 Type 
+Enum 0x0000 None
+Enum 0x0001 PC Monitor
+Enum 0x0002 PC Controled
+Enum 0x0004 PC Synchronize
+Int16 Monitor
+Enum 0x0000 All
+Enum 0x0001 MCU
+Reply
+Int16 Status	
+040C Boot DSP
+Int8 Code
+Enum 0x00 Impedance/WBT
+Enum 0x01 Calibration	
+Enum 0x02 OAE
+Enum 0x03 TEOAE
+Enum 0x04 ABRIS
+Enum 0x05 POWER_SAVE
+Reply
+Int16 Status	
+Int32 Error 	
+040E IsLicensed
+Int16 Module
+Enum 0x3400 ProgramTypeTitanImpedance
+Enum 0x3401 ProgramTypeTitanDPOAE
+Enum 0x3402 ProgramTypeTitanABRIS
+Enum 0x3403 ProgramTypeTitanDPOAE
+Enum 0x3404 ProgramTypeTitanRESEARCH
+Int16 Feature
+Enum 0x0000 measureTypeNone
+Enum 0x01a0 measureTypeTympanometry            	
+Enum 0x01a1 measureTypeReflexFixedIntensity    	
+Enum 0x01a2 measureTypeTitanImpedanceManualTympanometry
+Enum 0x01a3 measureTypeReflexGrowth            	
+Enum 0x01a4 measureTypeReflexDecay             	
+Enum 0x01a5 measureTypeReflexLatency           
+Enum 0x01a6 measureTypeEtf1 
+Enum 0x01a7 measureTypeEtf2
+Enum 0x01a8 measureTypeEtf3                   	
+Enum 0x01a9 measureTypeSweeptProbeTone
+Enum 0x01aa measureTypeTitanImpedanceReflexContra
+Enum 0x01ab measureTypeTitanImpedanceHighProbeTone 
+Enum 0x02c0 measureTypeTitanTEOAE
+Enum 0x02c1 measureTypeTitanTEOAESOAE
+Enum 0x02c2 measureTypeTitanTEOAE2CEOAE
+Enum 0x02c3 measureTypeTitanTEOAEResponseFrequencyRange
+Enum 0x02c4 measureTypeTitanTEOAEExtendedNumberOfBands
+Enum 0x02c5 measureTypeTitanTEOAENormativeData
+Enum 0x02c6 measureTypeTitanTEOAEMaximumTestTime
+Enum 0x02c7 measureTypeTitanTEOAEExtendedTestingCapability
+Enum 0x02c8 measureTypeTitanTEOAEGraphDisplayFFT         
+Enum 0x02c9 measureTypeTitanTEOAEGraphDisplayAdvanced
+Enum 0x02ca measureTypeTitanTEOAEFlexibleSegmentationBandConfiguration
+Enum 0x02cb measureTypeTitanTEOAEPressurizedMeasurements
+Enum 0x05c0 measureTypeTitanRESEARCHBasic
+Enum 0x05c1 measureTypeTitanRESEARCHKeef     
+Reply
+Int16 IsLicensed
+Enum 0x0000 No
+Enum 0x0001 Yes
+07A0 Setup and Start Stimulation
+Int16 Activate channel
+Enum 0x0000 Both
+Enum 0x0001 Ch1/Left
+Enum 0x0002 Ch2/Right
+Int16 Ch1 Attenuation -> range 0-1200 (0-120 dB)
+Int16 Ch2 Attenuation -> range 0-1200 (0-120 dB)
+Int16 Set output switch
+Enum 0x0000 Ch1 + Ch2 in probe
+Enum 0x0001 Ch1 Left (headset) + Ch2 probe
+Enum 0x0002 Ch1 probe + Right (headset)
+Enum 0x0003 Ch1 + Ch2 headset
+Int16 Set output extended range (20 dB)
+Enum 0x0000 both off  ch(0.3 Vrms output)
+Enum 0x0001 both on  ch(3 Vrms output)
+Enum 0x0002 ch1 on  (3 Vrms output)
+Enum 0x0003 ch2 on  (3 Vrms output)
+Int16 Input gain -> range 0, 10, 11, ... 65 
+Int16 Set input damping (20 dB)
+Enum 0x0000 off (0 dB damping)
+Enum 0x0001 on (20 dB damping)
+Int16 Enable jitter in data saving
+Enum 0x0000 off
+Enum 0x0001 on
+Int16 Input signal type
+Enum 0x0000 Microphone signal
+Enum 0x0001 Electrode signal (nape)
+Enum 0x0002 Electrode signal (mastoid)
+Int16 Sub block size (pressure sampling rate)
+Enum 0x0000 128 samples (only for 22050 Hz)
+Enum 0x0001 256 samples
+Enum 0x0002 512 samples
+Enum 0x0003 1024 samples
+Int16 Sampling frequency
+Enum 0x0000 22050 Hz
+Enum 0x0001 44100 Hz
+Int16 Use envelope onset
+Enum 0x0000 Off
+Enum 0x0001 On
+07A1 Setup pressurization
+Int16 Target pressure (-700 to 400 daPa)
+Int16 Pump mode
+Enum 0x0000 Hit target
+Enum 0x0001 Sweep very slow
+Enum 0x0002 Sweep slow
+Enum 0x0003 Sweep medium
+Enum 0x0004 Sweep fast
+Int16 Pressure tolerance (2-50 daPa)
+07A2 Stop stimulation
+Int16 Use envelope (offset)
+Enum 0x0000 Off
+Enum 0x0001 On
+07A3 Download stimulus data to DSP
+Int16 Channel
+Enum 0x0000 Ch1
+Enum 0x0001 Ch2
+Int32 Start address
+Int16 Bulk length in bytes
+07E0 Get HW configuration and FW version
+Reply
+Int16 Probe type
+Enum 0x0000 Not connected / undefined
+Enum 0x0001 IOW Probe
+Enum 0x0002 TDH39
+Enum 0x0004 CIR55
+Enum 0x0008 EarTone3A
+Enum 0x0010 EarTone5A
+Enum 0x0020 HDA200
+Enum 0x0040 HDA280
+Enum 0x0080 EarCupsSanibel
+Enum 0x0100 DD45
+Enum 0x0803 IOWA(LPC)
+Enum 0x2030 IP30
+Enum 0x4300 HDA300
+Enum 0x6200 BERAphone
+Enum 0x7081 IP30EarCupsSanibel
+Enum 0x6200 BERA-Phone
+Int16 Stereo transducer type
+Enum 0x0000 Not connected / undefined
+Enum 0x0001 IOW Probe
+Enum 0x0002 TDH39
+Enum 0x0004 CIR55
+Enum 0x0008 EarTone3A
+Enum 0x0010 EarTone5A
+Enum 0x0020 HDA200
+Enum 0x0040 HDA280
+Enum 0x0080 EarCupsSanibel
+Enum 0x0100 DD45
+Enum 0x2030 IP30
+Enum 0x4300 HDA300
+Enum 0x6200 BERAphone
+Enum 0x7081 IP30EarCupsSanibel
+Enum 0x6200 BERA-Phone
+Int16 Mono (contra) transducer type
+Enum 0x0000 Not connected / undefined
+Enum 0x0001 IOW Probe
+Enum 0x0002 TDH39
+Enum 0x0004 CIR55
+Enum 0x0008 EarTone3A
+Enum 0x0010 EarTone5A
+Enum 0x0020 HDA200
+Enum 0x0040 HDA280
+Enum 0x0080 EarCupsSanibel
+Enum 0x0100 DD45
+Enum 0x2030 IP30
+Enum 0x4300 HDA300
+Enum 0x6200 BERAphone
+Enum 0x7081 IP30EarCupsSanibel
+Enum 0x6200 BERA-Phone
+Int16 Shoulder-box/pre-amp type
+Enum 0x0000 Not connected / undefined
+Enum 0x0001 IMP SB
+Enum 0x0002 ABR Pre-Amp
+Enum 0x0803 IOWA_LPC
+Enum 0x0806 IOWA_GSI_SB
+Enum 0x080A IOWA_ROME_SB
+Enum 0x6200 BERAphone
+Int32 Probe serial number
+Int32 Stereo transducer serial number
+Int32 Mono (contra) transducer serial number
+Int32 Shoulder-box/pre-amp serial number
+Int32 Mainboard serial number
+Int16 FW version
+0800 Get MCU Firmware
+Reply
+Int8 HW Major
+Int8 HW Minor
+Int8 FW_MCU
+Int8 FW_DSP
+Int16 FW_MCU_Date
+Int16 FW_MCU_Time
+Int16 FW_DSP_Date
+Int16 FW_DSP_Time 
+Int16 Calib_Date
+Int16 Next_Calib_Date
+4003 GetLicenseKey
+Int16 Module
+Enum 0x3400 ProgramTypeTitanImpedance
+8000 Write CPU or DSP data
+8003 SetLicenseKey
+Int16 Module	
+Enum 0x3400 ProgramTypeTitanImpedance
+Enum 0x3401 ProgramTypeTitanDPOAE
+Enum 0x3402 ProgramTypeTitanABRIS    
+Enum 0x3403 ProgramTypeTitanTEOAE
+Reply
+Int16 LicenseSaved
+Enum 0x0000 No
+Enum 0x0001 Yes
+8005 Write Bulk to DSP
+Int16 Length
+Event 9690 Event pressure and response data bulk
+Int16 Bulk size in bytes
+Int16 Bulk size MSB (not used)
+Float32 Block scaling factor
+Int16 Mainboard pressure sensor ADC value (12 bit)
+Int16 Safety pressure sensor  ADC value (12 bit)
+Int16 S-B/pre-amp pressure sensor ADC value (12 bit)
+Event 16A0 Event pressure
+Int16 Mainboard pressure sensor
+Int16 Safety pressure sensor
+Int16 S-B/pre-amp pressure sensor
+Event 16A1 Event stimulation stopped
